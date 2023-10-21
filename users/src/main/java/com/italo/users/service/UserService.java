@@ -12,6 +12,6 @@ public interface UserService {
 
     UserResponseDTO register(UserRequestDTO userDTO);
 
-    UserResponseDTO update(UserRequestDTO userDTO);
+    UserResponseDTO update(UserRequestDTO userDTO, Long id);
     String delete(Long id);
 }
