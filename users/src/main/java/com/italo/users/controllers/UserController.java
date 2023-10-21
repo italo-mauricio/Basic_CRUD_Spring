@@ -21,25 +21,25 @@ public class UserController {
 
     private final UserService userService;
     @GetMapping(value = "/{id}")
-    private ResponseEntity<UserResponseDTO> findById(@PathVariable(name = "id") Long id){
+    public ResponseEntity<UserResponseDTO> findById(@PathVariable(name = "id") Long id){
         return ResponseEntity.ok().body(userService.findById(id));
     }
     @GetMapping
-    private ResponseEntity<List<UserResponseDTO>> findAll(){
+    public ResponseEntity<List<UserResponseDTO>> findAll(){
         return ResponseEntity.ok().body(userService.findAll());
     }
     @PostMapping
-    private ResponseEntity<UserResponseDTO> register(@RequestBody UserRequestDTO userRequestDTO, UriComponentsBuilder uriBUilder){
+    public ResponseEntity<UserResponseDTO> register(@RequestBody UserRequestDTO userRequestDTO, UriComponentsBuilder uriBUilder){
         UserResponseDTO userResponseDTO = userService.register(userRequestDTO);
         URI uri = uriBUilder.path("/user/{id}").buildAndExpand(userResponseDTO.getId()).toUri();
         return ResponseEntity.created(uri).body(userResponseDTO);
     }
     @PutMapping
-    private ResponseEntity<UserResponseDTO> update(@RequestBody UserRequestDTO userDTO, @PathVariable(name = "id") Long id){
+    public ResponseEntity<UserResponseDTO> update(@RequestBody UserRequestDTO userDTO, @PathVariable(name = "id") Long id){
         return ResponseEntity.ok().body(userService.update(userDTO, id));
     }
     @DeleteMapping(value = "/{id}")
-    private ResponseEntity<String> delete(@PathVariable(value = "id") Long id){
+    public ResponseEntity<String> delete(@PathVariable(value = "id") Long id){
         return ResponseEntity.ok().body(userService.delete(id));
     }
 }
