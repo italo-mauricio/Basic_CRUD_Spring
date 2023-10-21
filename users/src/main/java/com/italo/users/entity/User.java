@@ -1,10 +1,7 @@
 package com.italo.users.entity;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Table(name = "tb_user")
@@ -23,4 +20,12 @@ public class User {
     private String cpf;
     @Column(name = "age", nullable = false)
     private Integer age;
+
+    @Builder
+    public User(String name, String cpf, Integer age) {
+        this.name = name;
+        this.cpf = cpf;
+        this.age = age;
+    }
+
 }
