@@ -17,7 +17,7 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
-    private UserMapper userMapper;
+    private final UserMapper userMapper;
     @Override
     public UserResponseDTO findById(Long id) {
        return userMapper.toUserDTO(returnUser(id));

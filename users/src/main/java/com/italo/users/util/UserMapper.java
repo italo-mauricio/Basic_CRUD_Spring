@@ -3,10 +3,12 @@ package com.italo.users.util;
 import com.italo.users.dto.request.UserRequestDTO;
 import com.italo.users.dto.response.UserResponseDTO;
 import com.italo.users.entity.User;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Component
 public class UserMapper {
     public User toUser(UserRequestDTO userDTO){
         return User.builder()

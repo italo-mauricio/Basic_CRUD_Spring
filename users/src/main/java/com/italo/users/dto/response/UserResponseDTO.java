@@ -2,8 +2,10 @@ package com.italo.users.dto.response;
 
 import com.italo.users.entity.User;
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
+@Setter
 public class UserResponseDTO {
 
     private Long id;
