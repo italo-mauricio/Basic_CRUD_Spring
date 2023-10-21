@@ -1,7 +1,17 @@
 package com.italo.users.service;
 
-import org.springframework.stereotype.Service;
+import com.italo.users.dto.request.UserRequestDTO;
+import com.italo.users.dto.response.UserResponseDTO;
 
-@Service
-public class UserService {
+import java.util.List;
+
+public interface UserService {
+    UserResponseDTO findById(Long id);
+
+    List<UserResponseDTO> findAll();
+
+    UserResponseDTO register(UserRequestDTO userDTO);
+
+    UserResponseDTO update(UserRequestDTO userDTO);
+    String delete(Long id);
 }
