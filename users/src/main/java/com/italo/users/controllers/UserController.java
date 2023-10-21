@@ -34,4 +34,12 @@ public class UserController {
         URI uri = uriBUilder.path("/user/{id}").buildAndExpand(userResponseDTO.getId()).toUri();
         return ResponseEntity.created(uri).body(userResponseDTO);
     }
+    @PutMapping
+    private ResponseEntity<UserResponseDTO> update(@RequestBody UserRequestDTO userDTO, @PathVariable(name = "id") Long id){
+        return ResponseEntity.ok().body(userService.update(userDTO, id));
+    }
+    @DeleteMapping(value = "/{id}")
+    private ResponseEntity<String> delete(@PathVariable(value = "id") Long id){
+        return ResponseEntity.ok().body(userService.delete(id));
+    }
 }
