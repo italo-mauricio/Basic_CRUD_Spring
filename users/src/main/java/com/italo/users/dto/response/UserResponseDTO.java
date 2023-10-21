@@ -1,7 +1,9 @@
 package com.italo.users.dto.response;
 
 import com.italo.users.entity.User;
+import lombok.Getter;
 
+@Getter
 public class UserResponseDTO {
 
     private Long id;
