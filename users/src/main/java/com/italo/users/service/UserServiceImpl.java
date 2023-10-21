@@ -20,24 +20,25 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
     @Override
     public UserResponseDTO findById(Long id) {
-       User userSystem = returnUser(id);
-       return userMapper.toUserDTO(userSystem);
+       return userMapper.toUserDTO(returnUser(id));
     }
 
     @Override
     public List<UserResponseDTO> findAll() {
-        List<User> usersList = userRepository.findAll();
-
+        return userMapper.toPeoplesDTO(userRepository.findAll());
     }
 
     @Override
     public UserResponseDTO register(UserRequestDTO userDTO) {
-        return null;
+        User user = userMapper.toUser(userDTO);
+        return userMapper.toUserDTO(userRepository.save(user));
     }
 
     @Override
     public UserResponseDTO update(UserRequestDTO userDTO, Long id) {
         User userSystem = returnUser(id);
+        userMapper.updateUserData(userSystem, userDTO);
+        return userMapper.toUserDTO(userRepository.save(userSystem));
     }
 
     @Override

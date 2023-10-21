@@ -20,7 +20,13 @@ public class UserMapper {
         return new UserResponseDTO(user);
     }
 
-    public List<UserResponseDTO> toUserDTO(List<User> userList){
+    public List<UserResponseDTO> toPeoplesDTO(List<User> userList){
         return userList.stream().map(UserResponseDTO::new).collect(Collectors.toList());
+    }
+
+    public void updateUserData(User user, UserRequestDTO userDTO){
+        user.setName(userDTO.getName());
+        user.setCpf(userDTO.getCpf());
+        user.setAge(userDTO.getAge());
     }
 }
