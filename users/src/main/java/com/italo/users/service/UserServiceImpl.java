@@ -43,7 +43,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public String delete(Long id) {
-        return null;
+        userRepository.deleteById(id);
+        return "User id:" + id + " deleted";
     }
 
     private User returnUser(Long id){
