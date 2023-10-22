@@ -20,12 +20,18 @@ public class User {
     private String cpf;
     @Column(name = "age", nullable = false)
     private Integer age;
+    @Column(name= "address", nullable = false, unique = true)
+    private String address;
+    @Column(name = "sex", nullable = false)
+    private String sex;
 
     @Builder
-    public User(String name, String cpf, Integer age) {
+    public User(String name, String cpf, Integer age, String address, String sex) {
         this.name = name;
         this.cpf = cpf;
         this.age = age;
+        this.address = address;
+        this.sex = sex;
     }
 
 }

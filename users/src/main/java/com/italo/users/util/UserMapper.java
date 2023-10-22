@@ -15,6 +15,8 @@ public class UserMapper {
                 .name(userDTO.getName())
                 .cpf(userDTO.getCpf())
                 .age(userDTO.getAge())
+                .address(userDTO.getAddress())
+                .sex(userDTO.getSex())
                 .build();
     }
 
@@ -30,5 +32,7 @@ public class UserMapper {
         user.setName(userDTO.getName());
         user.setCpf(userDTO.getCpf());
         user.setAge(userDTO.getAge());
+        user.setAddress(user.getAddress());
+        user.setSex(user.getSex());
     }
 }
